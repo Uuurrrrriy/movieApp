@@ -1,0 +1,22 @@
+.footer {
+  &__footer-bg {
+    background: #1A1E23;
+    color: white;
+  }
+  &__col-white {
+    color: white;
+  }
+  &.footer-head {
+    &:hover {
+      color: #95a5a6;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: #95a5a6;
+    }
+  }
+
+}

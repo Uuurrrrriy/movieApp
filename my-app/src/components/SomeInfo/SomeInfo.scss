@@ -1,0 +1,46 @@
+.some-info {
+  &__bg-main-img {
+    background-image: url("https://d0.tubitv.com/web/dist/60e94fd8.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &.link {
+    text-decoration: none;
+  }
+  &__header-info {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: .5px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+  }
+  &__main-info {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: .5px;
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: hsla(0,0%,100%,.7);
+  }
+  &__footer-info {
+    text-align: left;
+    width: 100%;
+    font-size: .8rem;
+    margin: 1rem 0;
+  }
+  &__bg-helpful-img {
+    background-image: url("https://d0.tubitv.com/web/dist/6d56f796.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    height: 350px;
+  }
+}

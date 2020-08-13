@@ -1,0 +1,27 @@
+.my-btn {
+  height: 38px;
+  span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  &.btn {
+    box-shadow: unset;
+
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  &.btn-primary {
+    &.focus,
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  &.btn-styled {
+    background: whitesmoke !important;
+  }
+}

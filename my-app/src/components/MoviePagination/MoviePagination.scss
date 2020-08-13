@@ -1,0 +1,16 @@
+.movie-pagination {
+  //&__p-link {
+  //  background-color: black;
+  //  border-color: black;
+  //  z-index: 3;
+  //}
+
+  &__page-link {
+    a {
+      color: #1A1E23;
+    }
+    a:hover {
+      color: gray;
+    }
+  }
+}
