@@ -15,6 +15,8 @@ import {Footer} from "../Footer/Footer";
 import {NotFound} from "../../containers/NotFound/NotFound";
 import {Redirect} from "react-router";
 import {MovieDetailsPage} from "../../containers/MovieDetailsPage";
+import {MoviesSearch} from "../MovieSearch";
+import {MovieSearchDetailsPage} from "../MovieSearchDetailsPage";
 
 
 export const AppWrapper = () => {
@@ -30,7 +32,9 @@ export const AppWrapper = () => {
                             <Route exact path='/films'>
                                 <MovieList/>
                             </Route>
-                            <Route path="/films/:id" component={MovieDetailsPage}/>
+                            <Route path='/films/:id' component={MovieDetailsPage}/>
+                            <Route exact path='/search' component={MoviesSearch}/>
+                            <Route  path='/search/:id' component={MovieSearchDetailsPage} />
                             <Route path="/not-found" component={NotFound}/>
                             <Redirect from="*" to="/not-found"/>
                         </Switch>

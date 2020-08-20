@@ -61,7 +61,7 @@ export class MovieCard extends Component {
 
         return (
             <div className={`${CN} h-100 card`} onClick={this.onSelectHandler}>
-                <PosterImage image={poster_path} />
+                <PosterImage image={poster_path} alt={title} />
                 <Card.Body>
                     <Card.Title>
                         {title}

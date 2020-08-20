@@ -1,10 +1,12 @@
 import {combineReducers} from "redux";
 import {moviesReducer} from "./movies.reducer";
 import {genresReducer} from "./genres.reducer";
+import {moviesSearchReducer} from "./moviesSearch.reducer";
 
 export default () => {
     return combineReducers({
         movies: moviesReducer,
-        genres: genresReducer
+        genres: genresReducer,
+        moviesSearch: moviesSearchReducer
     })
 }

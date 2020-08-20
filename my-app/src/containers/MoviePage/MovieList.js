@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import {Loading} from "../../components/Loading/Loading";
 import {MoviePagination} from "../../components/MoviePagination/MoviePagination";
 import './MovieList.scss'
+import {Jumbotron} from "../../components/Jumbotron/Jumbotron";
 
 const CN = 'movie-list';
 export class MovieList extends Component {
@@ -61,65 +62,69 @@ export class MovieList extends Component {
     };
 
     render() {
-        const { moviesConfig: { movieList, isLoading: isMoviesLoading, page, totalPages }, portionSize = 10 } = this.props;
+        const { moviesConfig: { movieList, isLoading: isMoviesLoading, page, totalPages },
+            portionSize = 10,
+            match: {url} } = this.props;
             // debugger
         // console.log(this.props);
         return (
-            <div className={`${CN} p-4`}>
-                <h3>
-                    Movie for Elite Films
-                </h3>
-                <div className={`pagination d-flex justify-content-center align-items-center ${isMoviesLoading ? 'disabled' : ''}`}>
-                    <div className="pt-3">
-                        <div className="pages">
-                            <MoviePagination
-                                currentPage={page}
-                                pageCount={totalPages}
-                                portionSize={portionSize}
-                                onPageClick={this.setPage} />
-                            {/*{*/}
-                            {/*    (new Array(totalPages)).fill(1).map((item, index) => (*/}
-                            {/*        <div>*/}
-                            {/*            <div key={index} className={`pagination-item ${index + 1 === page ? 'active' : ''}`}*/}
-                            {/*                 onClick={this.setPage(index + 1)}>{index + 1}</div>*/}
-                            {/*        </div>*/}
-                            {/*    ))*/}
-                            {/*}*/}
-                        </div>
-                    </div>
-                </div>
-                <div className='pt-4'>
-                    { isMoviesLoading && <Loading/> }
+           <div>
+               <Jumbotron path={url} />
+               <div className={`${CN} pr-4 pl-4 pb-3 pt-2`}>
+                   <h3>
+                       Movie for Elite Films
+                   </h3>
+                   <div className={`pagination d-flex justify-content-center align-items-center ${isMoviesLoading ? 'disabled' : ''}`}>
+                       <div className="pt-3">
+                           <div className="pages">
+                               <MoviePagination
+                                   currentPage={page}
+                                   pageCount={totalPages}
+                                   portionSize={portionSize}
+                                   onPageClick={this.setPage} />
+                               {/*{*/}
+                               {/*    (new Array(totalPages)).fill(1).map((item, index) => (*/}
+                               {/*        <div>*/}
+                               {/*            <div key={index} className={`pagination-item ${index + 1 === page ? 'active' : ''}`}*/}
+                               {/*                 onClick={this.setPage(index + 1)}>{index + 1}</div>*/}
+                               {/*        </div>*/}
+                               {/*    ))*/}
+                               {/*}*/}
+                           </div>
+                       </div>
+                   </div>
+                   <div className='pt-4'>
+                       { isMoviesLoading && <Loading/> }
 
-                    {
-                        !isMoviesLoading && !movieList.length && (
-                            <div>No movie founds</div>
-                        )
-                    }
+                       {
+                           !isMoviesLoading && !movieList.length && (
+                               <div>No movie founds</div>
+                           )
+                       }
 
-                    {
-                        !isMoviesLoading && !!movieList.length && (
-                            <div className='row row-cols-1 row-cols-md-3'>
-                                {
-                                    movieList.map(movie => (
-                                        <div className='col mb-4' key={movie.id}>
-                                            <MovieCard item={movie} onSelect={this.onSelectPost} />
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        )
-                    }
-
-                    {/*{*/}
-                    {/*    movieList.map(movie => (*/}
-                    {/*                    <div key={movie.id}>*/}
-                    {/*                        {movie.title}*/}
-                    {/*                    </div>*/}
-                    {/*                ))*/}
-                    {/*}*/}
-                </div>
-            </div>
+                       {
+                           !isMoviesLoading && !!movieList.length && (
+                               <div className='row row-cols-1 row-cols-md-3'>
+                                   {
+                                       movieList.map(movie => (
+                                           <div className='col mb-4' key={movie.id}>
+                                               <MovieCard item={movie} onSelect={this.onSelectPost} />
+                                           </div>
+                                       ))
+                                   }
+                               </div>
+                           )
+                       }
+                       {/*{*/}
+                       {/*    movieList.map(movie => (*/}
+                       {/*                    <div key={movie.id}>*/}
+                       {/*                        {movie.title}*/}
+                       {/*                    </div>*/}
+                       {/*                ))*/}
+                       {/*}*/}
+                   </div>
+               </div>
+           </div>
         );
     }
 
