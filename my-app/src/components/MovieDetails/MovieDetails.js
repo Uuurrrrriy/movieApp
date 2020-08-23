@@ -7,6 +7,7 @@ import {Loading} from "../Loading/Loading";
 import './MovieDetails.scss'
 import {IconsList} from "../IconsList/IconsList";
 
+
 export class MovieDetails extends Component {
     // static contextType = AppFooterIconsContext;
 
@@ -92,6 +93,17 @@ export class MovieDetails extends Component {
                             <IconsList/>
                         </div>
                     </div>
+                </div>
+                <div className='container d-flex'>
+                    <div className='pr-1 mt-2'>
+                        <i className="fas fa-comment-alt black-text fa-lg mr-md-4 mr-1 fa-3x"> </i>
+                    </div>
+                   <div className='col-12'>
+                       <h1>
+                           Reviews
+                       </h1>
+                       <hr/>
+                   </div>
                 </div>
                 <div className='d-flex justify-content-center align-content-center pb-5' onClick={this.goBack}>
                     <div className='button-container'>

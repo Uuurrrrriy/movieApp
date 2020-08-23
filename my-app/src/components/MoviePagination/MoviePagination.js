@@ -1,15 +1,23 @@
 import React, {useState} from 'react';
 import Pagination from "react-bootstrap/Pagination";
 import './MoviePagination.scss'
+// import {AppSortingTypeContext} from "../../context";
+// import {AppSortingTypeContext} from "../../context";
 
 const CN = 'movie-pagination';
 export const MoviePagination = (props) => {
-    const { currentPage, pageCount, onPageClick, portionSize } = props;
-
+    // const sortingBy = useContext(AppSortingTypeContext);
+    const { currentPage, pageCount, onPageClick, onSortPageClick, sortBy, load, portionSize } = props;
+    // console.log(load);
     let pages = [];
     for (let i = 1; i <= pageCount; i++) {
         pages.push(i);
     }
+
+    // let sortingValues = sortingBy.map( item => {
+    //     return item.sortBy
+    // } );
+    // console.log(sortingValues);
 
     const portionCount = Math.ceil(pageCount/portionSize);
     const [portionNumber, setPortionNumber] = useState(1);
@@ -24,14 +32,18 @@ export const MoviePagination = (props) => {
         setPortionNumber(portionNumber+1);
     };
 
-    const activePage = (page) => {
-        console.log(page);
-        if ( page === currentPage ) {
-            return (
-                <span className="sr-only">(current)</span>
-            )
-        }
-    };
+    // const sortValues = (i) => {
+    //   return sortingValues[i]
+    // };
+
+    // const activePage = (page) => {
+    //     console.log(page);
+    //     if ( page === currentPage ) {
+    //         return (
+    //             <span className="sr-only">(current)</span>
+    //         )
+    //     }
+    // };
 
     return (
             <div className={`${CN}__page-link d-flex`}>
@@ -55,41 +67,43 @@ export const MoviePagination = (props) => {
                                 // console.log(item,leftPortionNumber,rightPortionNumber);
                                 return  item >= leftPortionNumber && item <= rightPortionNumber
                             })
-                            .map((item, index) => (
-                                // <li className={`page-item ${CN}__${ currentPage === item ? 'activePage' : '' }`}
-                                //     key={index}
-                                //     onClick={onPageClick(item)}
-                                //     aria-current={`${ currentPage === item ? 'page' : '' }`}
-                                // >
-                                //     {
-                                //         item === currentPage
-                                //             ?
-                                //             <span className={`${CN}__p-link`}>
-                                //                 {
-                                //                     item
-                                //                 }
-                                //                 {
-                                //                     activePage(item)
-                                //                 }
-                                //             </span>
-                                //             :
-                                //             <a className={`${CN}__p-link`} href="#">
-                                //                 {
-                                //                     item
-                                //                 }
-                                //             </a>
-                                //
-                                //     }
-                                // </li>
+                            .map((item, index) => {
+                                return (
+                                    // <li className={`page-item ${CN}__${ currentPage === item ? 'activePage' : '' }`}
+                                    //     key={index}
+                                    //     onClick={onPageClick(item)}
+                                    //     aria-current={`${ currentPage === item ? 'page' : '' }`}
+                                    // >
+                                    //     {
+                                    //         item === currentPage
+                                    //             ?
+                                    //             <span className={`${CN}__p-link`}>
+                                    //                 {
+                                    //                     item
+                                    //                 }
+                                    //                 {
+                                    //                     activePage(item)
+                                    //                 }
+                                    //             </span>
+                                    //             :
+                                    //             <a className={`${CN}__p-link`} href="#">
+                                    //                 {
+                                    //                     item
+                                    //                 }
+                                    //             </a>
+                                    //
+                                    //     }
+                                    // </li>
                                     <Pagination.Item
                                         key={index}
-                                        onClick={onPageClick(item)}
+                                        onClick={ load ? onSortPageClick(item,sortBy) : onPageClick(item)}
                                         active={item === currentPage}
                                         // className={`${CN}__${item === currentPage ? 'active' : ''}`}
                                     >
                                         {item}
                                     </Pagination.Item>
-                        ))
+                                )
+                            })
                     }
                     {
                         portionCount > portionNumber &&  <Pagination.Next onClick={(e)=>{
