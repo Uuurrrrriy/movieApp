@@ -7,7 +7,7 @@ import './MoviePagination.scss'
 const CN = 'movie-pagination';
 export const MoviePagination = (props) => {
     // const sortingBy = useContext(AppSortingTypeContext);
-    const { currentPage, pageCount, onPageClick, onSortPageClick, sortBy, load, portionSize } = props;
+    const { currentPage, pageCount, onPageClick, sortBy, load, onSortPageClick, portionSize } = props;
     // console.log(load);
     let pages = [];
     for (let i = 1; i <= pageCount; i++) {
@@ -96,6 +96,7 @@ export const MoviePagination = (props) => {
                                     // </li>
                                     <Pagination.Item
                                         key={index}
+                                        // onClick={ load ? onSortPageClick(item,sortBy) : onPageClick(item)}
                                         onClick={ load ? onSortPageClick(item,sortBy) : onPageClick(item)}
                                         active={item === currentPage}
                                         // className={`${CN}__${item === currentPage ? 'active' : ''}`}

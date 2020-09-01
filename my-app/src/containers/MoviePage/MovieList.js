@@ -54,11 +54,12 @@ export class MovieList extends Component {
         getSortingMovies(page,sortType)
     };
 
-    updateUrl = (page) => {
+    updateUrl = (page,sortBy) => {
         // апдейт урлы в адресной строке, меняем query search
         const { history } = this.props;
         const newParams = {
-            page
+            page,
+            sortBy
         };
         history.replace({ search: queryString.stringify(newParams) });
     };
@@ -72,13 +73,13 @@ export class MovieList extends Component {
         history.replace({ search: queryString.stringify(newParams) });
     };
 
-    setPage = (pageNum) => {
+    setPage = (pageNum,SortType) => {
         // const { actions: { setPage } } = this.props;
 
         return () => {
             // const { usersConfig: { perPage } } = this.props;
-            this.loadMovies(pageNum);
-            this.updateUrl(pageNum);
+            this.loadMovies(pageNum,SortType);
+            this.updateUrl(pageNum,SortType);
         };
     };
 
@@ -126,21 +127,21 @@ export class MovieList extends Component {
         this.setSortPage(pageNum,sortBy)
     };
 
-    onSelectPost = (id) => {
+    onSelectPost = (id,sortBy) => {
         const { history, match: { url } } = this.props;
 
         // console.log(this.props);
 
-        history.push(`${url}/${id}`);
+        history.push(`${url}/${id}${ !!sortBy ? `&sort_by=${sortBy}` : '' }`);
     };
 
     render() {
         const { moviesConfig: { movieList, isLoading: isMoviesLoading, page, totalPages },
             moviesSortingConfig: { movieSortingList, isLoading: isSortingMoviesLoading, page: sortPage, totalPages: sortTotalPages },
             portionSize = 10,
-            match: {url} } = this.props;
+            match: {url, params: { id }}} = this.props;
             // debugger
-        console.log(this.props);
+        // console.log(this.props);
         // const { AppSortingTypeContext } = this.context;
         // console.log(this.context);
         return (
@@ -162,7 +163,7 @@ export class MovieList extends Component {
                                            {/*<ButtonGroup aria-label="Basic example">*/}
                                            {
                                                !!SortingTypes.length && SortingTypes.map( sortType => (
-                                                   <ButtonGroup  className="mr-1" aria-label="Basic example">
+                                                   <ButtonGroup key={sortType.id} className="mr-1" aria-label="Basic example">
                                                        <Button
                                                            key={sortType.id}
                                                            onClick={ () => {
@@ -226,7 +227,7 @@ export class MovieList extends Component {
                                                                 {
                                                                     movieSortingList.map(movie => (
                                                                         <div className='col mb-4' key={movie.id}>
-                                                                            <MovieCard item={movie} onSelect={this.onSelectPost} />
+                                                                            <MovieCard id={id} item={movie} onSelect={this.onSelectPost} />
                                                                         </div>
                                                                     ))
                                                                 }
@@ -278,7 +279,7 @@ export class MovieList extends Component {
                                                                 {
                                                                     movieList.map(movie => (
                                                                         <div className='col mb-4' key={movie.id}>
-                                                                            <MovieCard item={movie} onSelect={this.onSelectPost} />
+                                                                            <MovieCard id={id} item={movie} onSelect={this.onSelectPost} />
                                                                         </div>
                                                                     ))
                                                                 }

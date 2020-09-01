@@ -2,16 +2,34 @@ import React, {Component} from 'react';
 import {Jumbotron} from "../Jumbotron/Jumbotron";
 import {accessToken} from "../../constants";
 import {Loading} from "../Loading/Loading";
-// import {AppFooterIconsContext} from "../../context";
-// import {NavLink} from "react-router-dom";
 import './MovieDetails.scss'
 import {IconsList} from "../IconsList/IconsList";
+import queryString from "query-string";
+import {MoviePagination} from "../MoviePagination/MoviePagination";
+import {Reviews} from "../Reviews/Reviews";
+import {GoBackButton} from "../GoBackButton/GoBackButton";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
+import {Trailers} from "../Trailers/Trailers";
 
 
 export class MovieDetails extends Component {
     // static contextType = AppFooterIconsContext;
 
     componentDidMount() {
+        const { location: { search } ,reviewsConfig: { page } } = this.props;
+
+        const { id } = this.props;
+        // console.log(id);
+
+        const params = queryString.parse(search);
+
+        const { page: pageFromUrl } = params;
+
+        const pageNum = pageFromUrl ? pageFromUrl : page;
+
+        this.loadVideos(id);
+        this.loadReviews(id,pageNum);
         this.loadGenres()
     }
 
@@ -25,6 +43,40 @@ export class MovieDetails extends Component {
         getGenres(`https://api.themoviedb.org/3/genre/movie/list?api_key=${accessToken}`);
     };
 
+    loadReviews = (id,page) => {
+        const { actions } = this.props;
+        const { getReviewsMovies } = actions;
+        // console.log(actions);
+        getReviewsMovies(id,page);
+    };
+
+    loadVideos = (id) => {
+        const { actions } = this.props;
+        const { getVideos } = actions;
+        // console.log(actions);
+        getVideos(id);
+    };
+
+
+    updateUrl = (page) => {
+        // апдейт урлы в адресной строке, меняем query search
+        const { history } = this.props;
+        const newParams = {
+            page
+        };
+        history.replace({ search: queryString.stringify(newParams) });
+    };
+
+    setPage = (pageNum) => {
+        const { id } = this.props;
+
+        return () => {
+            // const { usersConfig: { perPage } } = this.props;
+            this.loadReviews(id,pageNum);
+            this.updateUrl(pageNum);
+        };
+    };
+
     goBack = () => {
         const { history } = this.props;
         history.goBack();
@@ -32,8 +84,14 @@ export class MovieDetails extends Component {
 
     render() {
         const { title, backdrop_path, overview, release_date, genre_ids } = this.props.item;
-        console.log(this.props.item);
-        const {genresConfig: {genreList, isLoading: isGenresLoading}} = this.props;
+        // console.log(this.props.item);
+        const {genresConfig: {genreList, isLoading: isGenresLoading},
+            reviewsConfig: { reviewsList,  isLoading: isReviewsLoading, page, totalPages },
+            videosConfig: { videosList, isLoading: isVideosLoading } ,
+            portionSize = 10
+        } = this.props;
+        // const trailer = videosList.find( item => item.type === 'Trailer' );
+        // console.log( this.props);
         // const { FooterIconsList } = this.context;
         // console.log( this.context );
         return (
@@ -70,7 +128,7 @@ export class MovieDetails extends Component {
                                                     if (item === genre.id) {
                                                         // console.log(genre.name);
                                                         return (
-                                                            <span className="badge badge-light">
+                                                            <span key={item.id} className="badge badge-light">
                                                                 {
                                                                     genre.name
                                                                 }
@@ -89,32 +147,97 @@ export class MovieDetails extends Component {
                                 overview
                             }
                         </p>
+                        <div className='mr-3 mb-4'>
+                            {isVideosLoading && <Loading/>}
+                            {/*{*/}
+                            {/*    !isVideosLoading && !!videosList.length && (*/}
+                            {/*        <div>*/}
+                            {/*            <Trailers item={trailer} />*/}
+                            {/*        </div>*/}
+                            {/*    )*/}
+                            {/*}*/}
+                            {
+                                !isVideosLoading && !!videosList.length && (
+                                    <ButtonGroup aria-label="Basic example">
+                                        {
+                                            videosList.map( item => {
+                                                if ( item.type === 'Trailer' ) {
+                                                    return (
+                                                        // <a key={item.id} href={`https://www.youtube.com/watch?v=${item.key}`}>
+                                                        //     <Button className='mr-2' variant="secondary">
+                                                        //         {
+                                                        //             item.name
+                                                        //         }
+                                                        //     </Button>
+                                                        // </a>
+                                                        <Trailers key={item.id} trailer={item} />
+                                                    )
+                                                }
+                                            } )
+                                        }
+                                </ButtonGroup>
+                                )
+                            }
+                        </div>
                         <div className=' p-2 d-flex text-decoration-none'>
                             <IconsList/>
                         </div>
                     </div>
                 </div>
+                <GoBackButton goBack={this.goBack} />
                 <div className='container d-flex'>
-                    <div className='pr-1 mt-2'>
-                        <i className="fas fa-comment-alt black-text fa-lg mr-md-4 mr-1 fa-3x"> </i>
-                    </div>
-                   <div className='col-12'>
-                       <h1>
-                           Reviews
-                       </h1>
-                       <hr/>
-                   </div>
-                </div>
-                <div className='d-flex justify-content-center align-content-center pb-5' onClick={this.goBack}>
-                    <div className='button-container'>
-                        <div className="button">
-                            <a href="#">
-                                <span className="shift mr-2">&#8249;</span>
-                                GO&nbsp;BACK&nbsp;
-                            </a>
-                            <div className="mask"> </div>
-                        </div>
-                    </div>
+                    {
+                        !!reviewsList.length ? (
+                            <div className=' d-flex'>
+                                <div className='mt-2'>
+                                    <i className="fas fa-comment-alt black-text fa-lg mr-md-4 mr-1 fa-2x"> </i>
+                                </div>
+                                <div className='col-12'>
+                                    <h3>
+                                        Reviews
+                                    </h3>
+                                    <hr/>
+                                    <div>
+                                        {isReviewsLoading && <Loading/>}
+                                        {
+                                            !isReviewsLoading && !!reviewsList.length && (
+                                                <div>
+                                                    {
+                                                        reviewsList.map(item => (
+                                                            <div key={item.id}>
+                                                                <Reviews review={item} />
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            )
+                                        }
+                                        {
+                                            totalPages > 1 ? (
+                                                <div className={`pagination d-flex justify-content-center align-content-center ${isReviewsLoading ? 'disabled' : ''}`}>
+                                                    <div className="pt-2 pb-4 ">
+                                                        <div className="pages">
+                                                            <MoviePagination
+                                                                currentPage={page}
+                                                                pageCount={totalPages}
+                                                                portionSize={portionSize}
+                                                                onPageClick={this.setPage}/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         );

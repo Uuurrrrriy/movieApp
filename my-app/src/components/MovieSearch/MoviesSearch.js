@@ -7,7 +7,6 @@ import {Jumbotron} from "../Jumbotron/Jumbotron";
 import queryString from "query-string";
 import {MoviePagination} from "../MoviePagination/MoviePagination";
 import Form from 'react-bootstrap/Form'
-import JumbotronImage from "../../assets/jumbotron_image.jpg";
 
 
 export class MoviesSearch extends Component{

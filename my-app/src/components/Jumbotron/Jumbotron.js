@@ -6,7 +6,7 @@ import {Button} from "../Button/Button";
 
 export const Jumbotron = (props) => {
     const { path } = props;
-    console.log( path );
+    // console.log( path );
 
     const renderJumbotron = () => {
         switch (path) {

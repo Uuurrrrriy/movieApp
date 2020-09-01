@@ -48,14 +48,14 @@ export class MovieCard extends Component {
     };
 
     onSelectHandler = () => {
-        const {onSelect, item: {id}} = this.props;
+        const {onSelect, item: {id}, sortBy} = this.props;
 
-        onSelect && onSelect(id)
+        onSelect && onSelect(id,sortBy)
     };
 
     render() {
         const {title, vote_average, overview, release_date, poster_path, genre_ids} = this.props.item;
-        // console.log(this.props);
+        // console.log(this.props.item);
         const {genresConfig: {genreList, isLoading: isGenresLoading}} = this.props;
         // debugger
 

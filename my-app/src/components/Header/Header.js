@@ -8,7 +8,7 @@ import './Header.scss'
 const CN = 'header';
 export const Header = (props) => {
     const links = useContext(AppLinksContext);
-    console.log(links);
+    // console.log(links);
     return (
        <div className={`${CN}`}>
                <div className='d-flex justify-content-sm-between  align-content-center bg-cl'>

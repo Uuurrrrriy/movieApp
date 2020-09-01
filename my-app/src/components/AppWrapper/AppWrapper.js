@@ -35,7 +35,7 @@ export const AppWrapper = () => {
                                 </Route>
                                 <Route path='/films/:id' component={MovieDetailsPage}/>
                                 <Route exact path='/search' component={MoviesSearch}/>
-                                <Route  path='/search/:id' component={MovieSearchDetailsPage} />
+                                <Route path='/search/:id' component={MovieSearchDetailsPage} />
                                 <Route path="/not-found" component={NotFound}/>
                                 <Redirect from="*" to="/not-found"/>
                             </Switch>

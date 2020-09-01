@@ -2,21 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dff6559-c3bc-49e8-8e7d-231947f92498" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/actionTypes/moviesSorting.actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/actions/moviesSorting.action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/RegisterInfo/RegisterInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/RegisterInfo/RegisterInfo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/reducers/moviesSorting.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/actionTypes/reviews.actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/actionTypes/videos.actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/actions/reviews.action.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/actions/videos.action.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/GoBackButton/GoBackButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/GoBackButton/GoBackButton.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/Reviews/Reviews.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/Trailers/Trailers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/reducers/reviews.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/reducers/videos.reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/AppWrapper/AppWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/AppWrapper/AppWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Jumbotron/Jumbotron.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Jumbotron/Jumbotron.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieCard/MovieCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieCard/MovieCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.container.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.container.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieDetails/MovieDetails.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/MoviePagination/MoviePagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MoviePagination/MoviePagination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/constants/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/containers/HomePage/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/containers/HomePage/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/containers/MoviePage/MovieList.container.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/containers/MoviePage/MovieList.container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieSearch/MoviesSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieSearch/MoviesSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/MovieSearchDetailsPage/MovieSearchDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/MovieSearchDetailsPage/MovieSearchDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/containers/MovieDetailsPage/MovieDetailsPage.container.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/containers/MovieDetailsPage/MovieDetailsPage.container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/containers/MovieDetailsPage/MovieDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/containers/MovieDetailsPage/MovieDetailsPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/containers/MoviePage/MovieList.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/containers/MoviePage/MovieList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/context/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/reducers/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SearchFormFunctionality" />
+        <entry key="$PROJECT_DIR$" value="SortingPanel" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,7 +87,7 @@
       <workItem from="1596198570786" duration="8372000" />
       <workItem from="1596670144568" duration="56248000" />
       <workItem from="1597144129911" duration="20774000" />
-      <workItem from="1597403825872" duration="78023000" />
+      <workItem from="1597403825872" duration="113089000" />
     </task>
     <task id="LOCAL-00001" summary="first version">
       <created>1597355035482</created>
@@ -109,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597954814851</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sorting panel">
+      <created>1598197478606</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598197478606</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,21 +146,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first version" />
     <MESSAGE value="upgrade search" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade search" />
+    <MESSAGE value="sorting panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorting panel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="301" y="22" key="#Deployment" timestamp="1597356300471">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="301" y="22" key="#Deployment/0.0.1366.728@0.0.1366.728" timestamp="1597356300471" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597951788402">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598708315258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597951788402" />
-    <state x="306" y="0" key="CommitChangelistDialog2" timestamp="1597954812986">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598708315258" />
+    <state x="306" y="0" key="CommitChangelistDialog2" timestamp="1598197477119">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="306" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597954812986" />
+    <state x="306" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598197477119" />
     <state x="129" y="40" key="DiffContextDialog" timestamp="1597356454722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -154,17 +170,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597586378261" />
-    <state x="275" y="78" key="Vcs.Push.Dialog.v2" timestamp="1597962078284">
+    <state x="275" y="78" key="Vcs.Push.Dialog.v2" timestamp="1598998988931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="78" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597962078284" />
+    <state x="275" y="78" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598998988931" />
     <state x="490" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597356700488">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1597356700488" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597962108571">
+    <state x="0" y="0" width="627" height="728" key="find.popup" timestamp="1598709416893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597962108571" />
+    <state x="0" y="0" width="627" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1598709416893" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598709394294">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598709394294" />
   </component>
 </project>

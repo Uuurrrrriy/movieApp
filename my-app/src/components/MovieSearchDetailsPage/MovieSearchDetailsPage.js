@@ -50,7 +50,7 @@ export class MovieSearchDetailsPage extends Component {
                 {
                     !isSearchMoviesLoading && !!movieSearchList.length && (
                         <ErrorBoundary>
-                            <MovieDetails item={movie}/>
+                            <MovieDetails id={id} item={movie}/>
                         </ErrorBoundary>
                         // <div>
                         //     {
